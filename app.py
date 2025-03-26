@@ -4,15 +4,15 @@ import WebScraping
 
 app = Flask(__name__)
 
-@app.route('/indices')
+@app.route('/indices', methods=['GET'])
 def indices():
     return jsonify(WebScraping.getIndices())
 
-@app.route('/commodities')
+@app.route('/commodities', methods=['GET'])
 def commodities():
     return jsonify(WebScraping.getCommodities())
 
-@app.route('/cryptos')
+@app.route('/cryptos', methods=['GET'])
 def cryptos():
     return jsonify(WebScraping.getCryptos())
 
