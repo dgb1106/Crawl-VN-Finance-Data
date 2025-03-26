@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
 import requests
 import WebScraping
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/indices', methods=['GET'])
 def indices():
