@@ -39,50 +39,72 @@ def getCryptos():
     return cryptos
 
 def getData():
-    response = requests.get(url, headers=headers)
-    json_data = response.json()
-    
-    indices.clear()
-    commodities.clear()
-    cryptos.clear()
-
-    for symbol in json_data["data"]["symbols"]:
-        symbol_data = symbol.get("data", {})
-        code = symbol_data.get("code", "N/A")
-        name = symbol_data.get("name", "N/A")
-        price = symbol_data.get("price", "N/A")
-        day_change = symbol_data.get("dayChange", 0)
-        day_change_pct = round(symbol_data.get("dayChangePercent", 0) * 100) / 100
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
         
-        if code in ['VNIndex', 'HNXIndex', 'HNXUpcomIndex', 'VN30', 'US30', 'SP500', 'COMP', 'UK100', 'JPN225', 'HKG33']:
-            indices.append(
-                {
-                    "code": code,
-                    "name": name,
-                    "price": price,
-                    "day_change": day_change,
-                    "day_change_pct": day_change_pct
-                }
-            )
-        elif code in ['XAUUSD', 'XAGUSD']:
-            commodities.append(
-                {
-                    "code": code,
-                    "name": name,
-                    "price": price,
-                    "day_change": day_change,
-                    "day_change_pct": day_change_pct
-                }
-            )
-        elif code in ['BTCUSDT', 'ETHUSDT']:
-            cryptos.append(
-                {
-                    "code": code,
-                    "name": name,
-                    "price": price,
-                    "day_change": day_change,
-                    "day_change_pct": day_change_pct
-                }
-            )
-
-        # print(f"{code} ({name}): {price} ({day_change:+.2f}, {day_change_pct}%)")
+        json_data = response.json()
+        
+        # Clear existing data
+        indices.clear()
+        commodities.clear()
+        cryptos.clear()
+        
+        # Debug response structure if needed
+        # print(json_data.keys())
+        
+        # Check if 'data' key exists and handle different response structures
+        if "data" in json_data and "symbols" in json_data["data"]:
+            for symbol in json_data["data"]["symbols"]:
+                symbol_data = symbol.get("data", {})
+                code = symbol_data.get("code", "N/A")
+                name = symbol_data.get("name", "N/A")
+                price = symbol_data.get("price", "N/A")
+                day_change = symbol_data.get("dayChange", 0)
+                day_change_pct = round(symbol_data.get("dayChangePercent", 0) * 100) / 100
+                
+                if code in ['VNIndex', 'HNXIndex', 'HNXUpcomIndex', 'VN30', 'US30', 'SP500', 'COMP', 'UK100', 'JPN225', 'HKG33']:
+                    indices.append(
+                        {
+                            "code": code,
+                            "name": name,
+                            "price": price,
+                            "day_change": day_change,
+                            "day_change_pct": day_change_pct
+                        }
+                    )
+                elif code in ['XAUUSD', 'XAGUSD']:
+                    commodities.append(
+                        {
+                            "code": code,
+                            "name": name,
+                            "price": price,
+                            "day_change": day_change,
+                            "day_change_pct": day_change_pct
+                        }
+                    )
+                elif code in ['BTCUSDT', 'ETHUSDT']:
+                    cryptos.append(
+                        {
+                            "code": code,
+                            "name": name,
+                            "price": price,
+                            "day_change": day_change,
+                            "day_change_pct": day_change_pct
+                        }
+                    )
+        else:
+            # Handle case where expected structure isn't present
+            print("API response structure has changed")
+            print("Available keys:", json_data.keys())
+            # Optionally save the response for debugging
+            with open('api_response_debug.json', 'w') as f:
+                import json as json_lib
+                json_lib.dump(json_data, f, indent=2)
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+    except ValueError as e:
+        print(f"JSON parsing error: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
