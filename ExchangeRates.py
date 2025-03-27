@@ -13,8 +13,14 @@ def initialize():
     '''
     Fetch HTML content from bank's website
     '''
+    CHROME_PATH = "/usr/bin/google-chrome"
+    CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
+    
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    options.binary_location = CHROME_PATH  # Chỉ định đường dẫn Chrome
+    options.add_argument("--headless")  # Chạy không hiển thị trình duyệt
+    options.add_argument("--no-sandbox")  # Bỏ sandbox để chạy trên server
+    options.add_argument("--disable-dev-shm-usage") 
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36")
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
