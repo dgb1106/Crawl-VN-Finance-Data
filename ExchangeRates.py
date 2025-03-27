@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
+import json
 
 load_dotenv()
 
@@ -13,14 +14,8 @@ def initialize():
     '''
     Fetch HTML content from bank's website
     '''
-    CHROME_PATH = "/usr/bin/google-chrome"
-    CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
-    
     options = webdriver.ChromeOptions()
-    options.binary_location = CHROME_PATH  # Chỉ định đường dẫn Chrome
-    options.add_argument("--headless")  # Chạy không hiển thị trình duyệt
-    options.add_argument("--no-sandbox")  # Bỏ sandbox để chạy trên server
-    options.add_argument("--disable-dev-shm-usage") 
+    options.add_argument("--headless")
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36")
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -76,9 +71,13 @@ def get_new_exchange_rates():
     return exchange_rates
 
 def get_current_exchange_rates():
-    return exchange_rates       
-        
+    return exchange_rates
+
+def save_to_json():   
+    with open('exchange_rates.json', 'w', encoding='utf-8') as f:
+        json.dump(exchange_rates, f, ensure_ascii=False, indent=4)
+    
 # if __name__ == "__main__":
 #     html_content = initialize()
 #     get_exchange_rates(html_content)
-#     display_exchange_rates(exchange_rates)
+#     save_to_json()

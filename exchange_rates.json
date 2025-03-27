@@ -1,0 +1,142 @@
+[
+    {
+        "currency_code": "USD",
+        "currency_name": "US DOLLAR",
+        "buy_price_cash": "25,360.00",
+        "buy_price_online": "25,390.00",
+        "sell_price": "25,750.00"
+    },
+    {
+        "currency_code": "EUR",
+        "currency_name": "EURO",
+        "buy_price_cash": "26,838.53",
+        "buy_price_online": "27,109.62",
+        "sell_price": "28,309.82"
+    },
+    {
+        "currency_code": "GBP",
+        "currency_name": "UK POUND STERLING",
+        "buy_price_cash": "32,187.80",
+        "buy_price_online": "32,512.92",
+        "sell_price": "33,555.62"
+    },
+    {
+        "currency_code": "JPY",
+        "currency_name": "JAPANESE YEN",
+        "buy_price_cash": "164.09",
+        "buy_price_online": "165.75",
+        "sell_price": "174.52"
+    },
+    {
+        "currency_code": "AUD",
+        "currency_name": "AUSTRALIAN DOLLAR",
+        "buy_price_cash": "15,731.38",
+        "buy_price_online": "15,890.29",
+        "sell_price": "16,399.89"
+    },
+    {
+        "currency_code": "SGD",
+        "currency_name": "SINGAPORE DOLLAR",
+        "buy_price_cash": "18,600.05",
+        "buy_price_online": "18,787.93",
+        "sell_price": "19,429.28"
+    },
+    {
+        "currency_code": "THB",
+        "currency_name": "THAI BAHT",
+        "buy_price_cash": "664.82",
+        "buy_price_online": "738.69",
+        "sell_price": "770.05"
+    },
+    {
+        "currency_code": "CAD",
+        "currency_name": "CANADIAN DOLLAR",
+        "buy_price_cash": "17,461.25",
+        "buy_price_online": "17,637.62",
+        "sell_price": "18,203.26"
+    },
+    {
+        "currency_code": "CHF",
+        "currency_name": "SWISS FRANC",
+        "buy_price_cash": "28,213.17",
+        "buy_price_online": "28,498.15",
+        "sell_price": "29,412.09"
+    },
+    {
+        "currency_code": "HKD",
+        "currency_name": "HONG KONG DOLLAR",
+        "buy_price_cash": "3,195.58",
+        "buy_price_online": "3,227.86",
+        "sell_price": "3,351.43"
+    },
+    {
+        "currency_code": "CNY",
+        "currency_name": "CHINESE YUAN",
+        "buy_price_cash": "3,431.37",
+        "buy_price_online": "3,466.03",
+        "sell_price": "3,577.19"
+    },
+    {
+        "currency_code": "DKK",
+        "currency_name": "DANISH KRONE",
+        "buy_price_cash": "-",
+        "buy_price_online": "3,624.29",
+        "sell_price": "3,763.04"
+    },
+    {
+        "currency_code": "INR",
+        "currency_name": "INDIAN RUPEE",
+        "buy_price_cash": "-",
+        "buy_price_online": "296.35",
+        "sell_price": "309.12"
+    },
+    {
+        "currency_code": "KRW",
+        "currency_name": "KOREAN WON",
+        "buy_price_cash": "15.09",
+        "buy_price_online": "16.76",
+        "sell_price": "18.19"
+    },
+    {
+        "currency_code": "KWD",
+        "currency_name": "KUWAITI DINAR",
+        "buy_price_cash": "-",
+        "buy_price_online": "82,461.52",
+        "sell_price": "86,014.06"
+    },
+    {
+        "currency_code": "MYR",
+        "currency_name": "MALAYSIAN RINGGIT",
+        "buy_price_cash": "-",
+        "buy_price_online": "5,710.39",
+        "sell_price": "5,834.87"
+    },
+    {
+        "currency_code": "NOK",
+        "currency_name": "NORWEGIAN KRONE",
+        "buy_price_cash": "-",
+        "buy_price_online": "2,377.33",
+        "sell_price": "2,478.24"
+    },
+    {
+        "currency_code": "RUB",
+        "currency_name": "RUSSIAN RUBLE",
+        "buy_price_cash": "-",
+        "buy_price_online": "290.72",
+        "sell_price": "321.83"
+    },
+    {
+        "currency_code": "SAR",
+        "currency_name": "SAUDI ARABIAN RIYAL",
+        "buy_price_cash": "-",
+        "buy_price_online": "6,777.45",
+        "sell_price": "7,069.43"
+    },
+    {
+        "currency_code": "SEK",
+        "currency_name": "SWEDISH KRONA",
+        "buy_price_cash": "-",
+        "buy_price_online": "2,499.78",
+        "sell_price": "2,605.88"
+    }
+]

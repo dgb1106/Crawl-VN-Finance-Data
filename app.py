@@ -1,6 +1,5 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 import WebScraping
-import ExchangeRates
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -20,11 +19,10 @@ def cryptos():
 
 @app.route('/exchange-rates', methods=['GET'])
 def exchange_rates():
-    return jsonify(ExchangeRates.get_current_exchange_rates())
-
-@app.route('/update-exchange-rates', methods=['GET'])
-def update_exchange_rates():
-    return jsonify(ExchangeRates.get_new_exchange_rates())
+    try:
+        return send_file("exchange_rates.json", mimetype="application/json")
+    except Exception as e:
+        return jsonify({"error": "Failed to read exchange rates file", "details": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
