@@ -22,7 +22,7 @@ def cryptos():
 def update_exchange_rates():
     try:
         exchange_rates = ExchangeRates.get_new_exchange_rates()
-        return jsonify(exchange_rates)
+        return send_file("exchange_rates.json", mimetype="application/json")
     except Exception as e:
         return jsonify({"error": "Failed to update exchange rates", "details": str(e)}), 500
 
