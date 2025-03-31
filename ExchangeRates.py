@@ -68,6 +68,7 @@ def display_exchange_rates(rates):
 def get_new_exchange_rates():
     html_content = initialize()
     get_exchange_rates(html_content)
+    save_to_json()
     return exchange_rates
 
 def get_current_exchange_rates():
