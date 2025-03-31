@@ -78,7 +78,5 @@ def save_to_json():
     with open('exchange_rates.json', 'w', encoding='utf-8') as f:
         json.dump(exchange_rates, f, ensure_ascii=False, indent=4)
     
-# if __name__ == "__main__":
-#     html_content = initialize()
-#     get_exchange_rates(html_content)
-#     save_to_json()
+if __name__ == "__main__":
+    get_new_exchange_rates()
